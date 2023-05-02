@@ -67,9 +67,9 @@
 
 
 /* First part of user prologue.  */
-#line 1 "ass6_20CS10029_20CS30042.y"
+#line 1 "ass6_20CS30042.y"
 
-    #include "ass6_20CS10029_20CS30042_translator.h"
+    #include "ass6_20CS30042_translator.h"
     extern int yylex();
     extern int yylineno;
     void yyerror(string);
@@ -314,7 +314,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 18 "ass6_20CS10029_20CS30042.y"
+#line 18 "ass6_20CS30042.y"
 
     int intVal;
     char *floatVal;
@@ -1914,7 +1914,7 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* primary_expression: IDENTIFIER  */
-#line 142 "ass6_20CS10029_20CS30042.y"
+#line 142 "ass6_20CS30042.y"
                                { 
                             printInfo("primary_expression", "IDENTIFIER");
                             (yyval.expression) = new Expression(); // create new non boolean expression and symbol is the identifier
@@ -1923,7 +1923,7 @@ yyreduce:
     break;
 
   case 3: /* primary_expression: INTEGER_CONSTANT  */
-#line 146 "ass6_20CS10029_20CS30042.y"
+#line 146 "ass6_20CS30042.y"
                                        { 
                             printInfo("primary_expression", "INTEGER_CONSTANT"); 
                             (yyval.expression) = new Expression(); (yyval.expression)->symbol = SymbolTable::gentemp(SymbolType::INT, toString((yyvsp[0].intVal)));
@@ -1932,7 +1932,7 @@ yyreduce:
     break;
 
   case 4: /* primary_expression: FLOATING_CONSTANT  */
-#line 150 "ass6_20CS10029_20CS30042.y"
+#line 150 "ass6_20CS30042.y"
                                         { 
                             printInfo("primary_expression", "FLOATING_CONSTANT"); 
                             (yyval.expression) = new Expression(); (yyval.expression)->symbol = SymbolTable::gentemp(SymbolType::FLOAT, (yyvsp[0].floatVal));
@@ -1941,7 +1941,7 @@ yyreduce:
     break;
 
   case 5: /* primary_expression: CHARACTER_CONSTANT  */
-#line 154 "ass6_20CS10029_20CS30042.y"
+#line 154 "ass6_20CS30042.y"
                                          { 
                             printInfo("primary_expression", "CHARACTER_CONSTANT"); 
                             (yyval.expression) = new Expression(); (yyval.expression)->symbol = SymbolTable::gentemp(SymbolType::CHAR, (yyvsp[0].charVal));
@@ -1950,7 +1950,7 @@ yyreduce:
     break;
 
   case 6: /* primary_expression: STRING_LITERAL  */
-#line 158 "ass6_20CS10029_20CS30042.y"
+#line 158 "ass6_20CS30042.y"
                                      { 
                             printInfo("primary_expression", "STRING_LITERAL"); 
                             (yyval.expression) = new Expression(); (yyval.expression)->symbol = SymbolTable::gentemp(SymbolType::POINTER, (yyvsp[0].strVal));
@@ -1962,7 +1962,7 @@ yyreduce:
     break;
 
   case 7: /* primary_expression: LEFT_PARENTHESIS expression RIGHT_PARENTHESIS  */
-#line 165 "ass6_20CS10029_20CS30042.y"
+#line 165 "ass6_20CS30042.y"
                                                                     { 
                             printInfo("primary_expression", "( expression )"); 
                             (yyval.expression) = (yyvsp[-1].expression); }
@@ -1970,7 +1970,7 @@ yyreduce:
     break;
 
   case 8: /* postfix_expression: primary_expression  */
-#line 171 "ass6_20CS10029_20CS30042.y"
+#line 171 "ass6_20CS30042.y"
                                        { 
                             // create new array with the same symbol as the primary expression
                             printInfo("postfix_expression", "primary_expression"); 
@@ -1981,7 +1981,7 @@ yyreduce:
     break;
 
   case 9: /* postfix_expression: postfix_expression LEFT_SQUARE_BRACE expression RIGHT_SQUARE_BRACE  */
-#line 177 "ass6_20CS10029_20CS30042.y"
+#line 177 "ass6_20CS30042.y"
                                                                                          { 
                             // create a new array
                             printInfo("postfix_expression", "postfix_expression [ expression ]"); 
@@ -2004,7 +2004,7 @@ yyreduce:
     break;
 
   case 10: /* postfix_expression: postfix_expression LEFT_PARENTHESIS argument_expression_list_opt RIGHT_PARENTHESIS  */
-#line 195 "ass6_20CS10029_20CS30042.y"
+#line 195 "ass6_20CS30042.y"
                                                                                                          {
                             // function call, number of parameters stored in argument_expression_list_opt
                             printInfo("postfix_expression", "postfix_expression ( argument_expression_list_opt )"); 
@@ -2014,21 +2014,21 @@ yyreduce:
     break;
 
   case 11: /* postfix_expression: postfix_expression DOT IDENTIFIER  */
-#line 200 "ass6_20CS10029_20CS30042.y"
+#line 200 "ass6_20CS30042.y"
                                                         { 
                             printInfo("postfix_expression", "postfix_expression . IDENTIFIER"); }
 #line 2021 "y.tab.c"
     break;
 
   case 12: /* postfix_expression: postfix_expression ARROW IDENTIFIER  */
-#line 202 "ass6_20CS10029_20CS30042.y"
+#line 202 "ass6_20CS30042.y"
                                                           { 
                             printInfo("postfix_expression", "postfix_expression -> IDENTIFIER"); }
 #line 2028 "y.tab.c"
     break;
 
   case 13: /* postfix_expression: postfix_expression INCREMENT  */
-#line 204 "ass6_20CS10029_20CS30042.y"
+#line 204 "ass6_20CS30042.y"
                                                    { 
                             // post increment, first generate temporary with old value, then add 1
                             printInfo("postfix_expression", "postfix_expression ++");
@@ -2039,7 +2039,7 @@ yyreduce:
     break;
 
   case 14: /* postfix_expression: postfix_expression DECREMENT  */
-#line 210 "ass6_20CS10029_20CS30042.y"
+#line 210 "ass6_20CS30042.y"
                                                    { 
                             // post decrement, first generate temporary with old value, then subtract 1
                             printInfo("postfix_expression", "postfix_expression --"); 
@@ -2051,21 +2051,21 @@ yyreduce:
     break;
 
   case 15: /* postfix_expression: LEFT_PARENTHESIS type_name RIGHT_PARENTHESIS LEFT_CURLY_BRACE initialiser_list RIGHT_CURLY_BRACE  */
-#line 217 "ass6_20CS10029_20CS30042.y"
+#line 217 "ass6_20CS30042.y"
                                                                                                                        { 
                             printInfo("postfix_expression", "( type_name ) { initialiser_list }");  }
 #line 2058 "y.tab.c"
     break;
 
   case 16: /* postfix_expression: LEFT_PARENTHESIS type_name RIGHT_PARENTHESIS LEFT_CURLY_BRACE initialiser_list COMMA RIGHT_CURLY_BRACE  */
-#line 219 "ass6_20CS10029_20CS30042.y"
+#line 219 "ass6_20CS30042.y"
                                                                                                                              { 
                             printInfo("postfix_expression", "( type_name ) { initialiser_list , }");  }
 #line 2065 "y.tab.c"
     break;
 
   case 17: /* argument_expression_list_opt: argument_expression_list  */
-#line 226 "ass6_20CS10029_20CS30042.y"
+#line 226 "ass6_20CS30042.y"
                                              {
                         printInfo("argument_expression_list_opt", "argument_expression_list"); 
                         (yyval.parameterCount) = (yyvsp[0].parameterCount); }
@@ -2073,7 +2073,7 @@ yyreduce:
     break;
 
   case 18: /* argument_expression_list_opt: %empty  */
-#line 230 "ass6_20CS10029_20CS30042.y"
+#line 230 "ass6_20CS30042.y"
                         {// 0 params
                         printInfo("argument_expression_list_opt", "epsilon");
                         (yyval.parameterCount) = 0; }
@@ -2081,7 +2081,7 @@ yyreduce:
     break;
 
   case 19: /* argument_expression_list: assignment_expression  */
-#line 236 "ass6_20CS10029_20CS30042.y"
+#line 236 "ass6_20CS30042.y"
                                           { 
                         // initialise param count to 1
                         printInfo("argument_expression_list", "assignment_expression"); 
@@ -2091,7 +2091,7 @@ yyreduce:
     break;
 
   case 20: /* argument_expression_list: argument_expression_list COMMA assignment_expression  */
-#line 241 "ass6_20CS10029_20CS30042.y"
+#line 241 "ass6_20CS30042.y"
                                                                            { 
                         // new param, add 1 to param count
                         printInfo("argument_expression_list", "argument_expression_list , assignment_expression");
@@ -2101,7 +2101,7 @@ yyreduce:
     break;
 
   case 21: /* unary_expression: postfix_expression  */
-#line 249 "ass6_20CS10029_20CS30042.y"
+#line 249 "ass6_20CS30042.y"
                                        {
                         printInfo("unary_expression", "postfix_expression"); 
                         (yyval.array) = (yyvsp[0].array);}
@@ -2109,7 +2109,7 @@ yyreduce:
     break;
 
   case 22: /* unary_expression: INCREMENT unary_expression  */
-#line 252 "ass6_20CS10029_20CS30042.y"
+#line 252 "ass6_20CS30042.y"
                                                  {
                         // pre increment, no new temporary, add 1
                         printInfo("unary_expression", "++ unary_expression"); 
@@ -2119,7 +2119,7 @@ yyreduce:
     break;
 
   case 23: /* unary_expression: DECREMENT unary_expression  */
-#line 257 "ass6_20CS10029_20CS30042.y"
+#line 257 "ass6_20CS30042.y"
                                                  { 
                         // pre decrement, no new temporary, subtract 1
                         printInfo("unary_expression", "-- unary_expression"); 
@@ -2129,7 +2129,7 @@ yyreduce:
     break;
 
   case 24: /* unary_expression: unary_operator cast_expression  */
-#line 262 "ass6_20CS10029_20CS30042.y"
+#line 262 "ass6_20CS30042.y"
                                                      { 
                         printInfo("unary_expression", "unary_operator cast_expression");
                         switch((yyvsp[-1].unaryOperator)[0]) {
@@ -2160,68 +2160,68 @@ yyreduce:
     break;
 
   case 25: /* unary_expression: SIZEOF unary_expression  */
-#line 289 "ass6_20CS10029_20CS30042.y"
+#line 289 "ass6_20CS30042.y"
                         { printInfo("unary_expression", "sizeof unary_expression"); }
 #line 2166 "y.tab.c"
     break;
 
   case 26: /* unary_expression: SIZEOF LEFT_PARENTHESIS type_name RIGHT_PARENTHESIS  */
-#line 291 "ass6_20CS10029_20CS30042.y"
+#line 291 "ass6_20CS30042.y"
                         { printInfo("unary_expression", "sizeof ( type_name )"); }
 #line 2172 "y.tab.c"
     break;
 
   case 27: /* unary_operator: BITWISE_AND  */
-#line 297 "ass6_20CS10029_20CS30042.y"
+#line 297 "ass6_20CS30042.y"
                     { printInfo("unary_operator", "&"); (yyval.unaryOperator) = strdup("&"); }
 #line 2178 "y.tab.c"
     break;
 
   case 28: /* unary_operator: ASTERISK  */
-#line 299 "ass6_20CS10029_20CS30042.y"
+#line 299 "ass6_20CS30042.y"
                     { printInfo("unary_operator", "*"); (yyval.unaryOperator) = strdup("*"); }
 #line 2184 "y.tab.c"
     break;
 
   case 29: /* unary_operator: PLUS  */
-#line 301 "ass6_20CS10029_20CS30042.y"
+#line 301 "ass6_20CS30042.y"
                     { printInfo("unary_operator", "+"); (yyval.unaryOperator) = strdup("+"); }
 #line 2190 "y.tab.c"
     break;
 
   case 30: /* unary_operator: MINUS  */
-#line 303 "ass6_20CS10029_20CS30042.y"
+#line 303 "ass6_20CS30042.y"
                     { printInfo("unary_operator", "-"); (yyval.unaryOperator) = strdup("=-"); }
 #line 2196 "y.tab.c"
     break;
 
   case 31: /* unary_operator: TILDE  */
-#line 305 "ass6_20CS10029_20CS30042.y"
+#line 305 "ass6_20CS30042.y"
                     { printInfo("unary_operator", "~"); (yyval.unaryOperator) = strdup("~"); }
 #line 2202 "y.tab.c"
     break;
 
   case 32: /* unary_operator: EXCLAMATION  */
-#line 307 "ass6_20CS10029_20CS30042.y"
+#line 307 "ass6_20CS30042.y"
                     { printInfo("unary_operator", "!"); (yyval.unaryOperator) = strdup("!"); }
 #line 2208 "y.tab.c"
     break;
 
   case 33: /* cast_expression: unary_expression  */
-#line 312 "ass6_20CS10029_20CS30042.y"
+#line 312 "ass6_20CS30042.y"
                     { printInfo("cast_expression", "unary_expression"); (yyval.array) = (yyvsp[0].array); }
 #line 2214 "y.tab.c"
     break;
 
   case 34: /* cast_expression: LEFT_PARENTHESIS type_name RIGHT_PARENTHESIS cast_expression  */
-#line 314 "ass6_20CS10029_20CS30042.y"
+#line 314 "ass6_20CS30042.y"
                     { printInfo("cast_expression", "( type_name ) cast_expression"); 
                     (yyval.array) = new Array(); (yyval.array)->symbol = (yyvsp[0].array)->symbol->convert(currentType); }
 #line 2221 "y.tab.c"
     break;
 
   case 35: /* multiplicative_expression: cast_expression  */
-#line 334 "ass6_20CS10029_20CS30042.y"
+#line 334 "ass6_20CS30042.y"
                                             { 
                                     SymbolType *baseType = (yyvsp[0].array)->symbol->type;
                                     while(baseType->arrayType) baseType = baseType->arrayType;
@@ -2237,7 +2237,7 @@ yyreduce:
     break;
 
   case 36: /* multiplicative_expression: multiplicative_expression ASTERISK cast_expression  */
-#line 345 "ass6_20CS10029_20CS30042.y"
+#line 345 "ass6_20CS30042.y"
                                                                                  { 
                                     SymbolType *baseType = (yyvsp[0].array)->symbol->type;
                                     Symbol *temp;
@@ -2259,7 +2259,7 @@ yyreduce:
     break;
 
   case 37: /* multiplicative_expression: multiplicative_expression SLASH cast_expression  */
-#line 362 "ass6_20CS10029_20CS30042.y"
+#line 362 "ass6_20CS30042.y"
                                                                               { 
                                     SymbolType *baseType = (yyvsp[0].array)->symbol->type;
                                     Symbol *temp;
@@ -2281,7 +2281,7 @@ yyreduce:
     break;
 
   case 38: /* multiplicative_expression: multiplicative_expression MODULO cast_expression  */
-#line 379 "ass6_20CS10029_20CS30042.y"
+#line 379 "ass6_20CS30042.y"
                                                                                { 
                                     SymbolType *baseType = (yyvsp[0].array)->symbol->type;
                                     Symbol *temp;
@@ -2302,7 +2302,7 @@ yyreduce:
     break;
 
   case 39: /* additive_expression: multiplicative_expression  */
-#line 398 "ass6_20CS10029_20CS30042.y"
+#line 398 "ass6_20CS30042.y"
                                               { 
                             printInfo("additive_expression", "multiplicative_expression"); 
                             (yyval.expression) = (yyvsp[0].expression); }
@@ -2310,7 +2310,7 @@ yyreduce:
     break;
 
   case 40: /* additive_expression: additive_expression PLUS multiplicative_expression  */
-#line 401 "ass6_20CS10029_20CS30042.y"
+#line 401 "ass6_20CS30042.y"
                                                                          { 
                             printInfo("additive_expression", "additive_expression + multiplicative_expression"); 
                             if(typeCheck((yyvsp[-2].expression)->symbol, (yyvsp[0].expression)->symbol)) {
@@ -2323,7 +2323,7 @@ yyreduce:
     break;
 
   case 41: /* additive_expression: additive_expression MINUS multiplicative_expression  */
-#line 409 "ass6_20CS10029_20CS30042.y"
+#line 409 "ass6_20CS30042.y"
                                                                           { 
                             printInfo("additive_expression", "additive_expression - multiplicative_expression"); 
                             if(typeCheck((yyvsp[-2].expression)->symbol, (yyvsp[0].expression)->symbol)) {
@@ -2336,13 +2336,13 @@ yyreduce:
     break;
 
   case 42: /* shift_expression: additive_expression  */
-#line 421 "ass6_20CS10029_20CS30042.y"
+#line 421 "ass6_20CS30042.y"
                         { printInfo("shift_expression", "additive_expression"); (yyval.expression) = (yyvsp[0].expression); }
 #line 2342 "y.tab.c"
     break;
 
   case 43: /* shift_expression: shift_expression LEFT_SHIFT additive_expression  */
-#line 422 "ass6_20CS10029_20CS30042.y"
+#line 422 "ass6_20CS30042.y"
                                                                       { 
                             printInfo("shift_expression", "shift_expression << additive_expression"); 
                             if((yyvsp[0].expression)->symbol->type->type == SymbolType::INT) {
@@ -2355,7 +2355,7 @@ yyreduce:
     break;
 
   case 44: /* shift_expression: shift_expression RIGHT_SHIFT additive_expression  */
-#line 430 "ass6_20CS10029_20CS30042.y"
+#line 430 "ass6_20CS30042.y"
                                                                        { 
                             printInfo("shift_expression", "shift_expression >> additive_expression"); 
                             if((yyvsp[0].expression)->symbol->type->type == SymbolType::INT) {
@@ -2368,13 +2368,13 @@ yyreduce:
     break;
 
   case 45: /* relational_expression: shift_expression  */
-#line 449 "ass6_20CS10029_20CS30042.y"
+#line 449 "ass6_20CS30042.y"
                         { printInfo("relational_expression", "shift_expression");  (yyval.expression) = (yyvsp[0].expression); }
 #line 2374 "y.tab.c"
     break;
 
   case 46: /* relational_expression: relational_expression LESS_THAN shift_expression  */
-#line 450 "ass6_20CS10029_20CS30042.y"
+#line 450 "ass6_20CS30042.y"
                                                                        { 
                             printInfo("relational_expression", "relational_expression < shift_expression"); 
                             if(typeCheck((yyvsp[-2].expression)->symbol, (yyvsp[0].expression)->symbol)) {
@@ -2390,7 +2390,7 @@ yyreduce:
     break;
 
   case 47: /* relational_expression: relational_expression GREATER_THAN shift_expression  */
-#line 461 "ass6_20CS10029_20CS30042.y"
+#line 461 "ass6_20CS30042.y"
                                                                           { 
                             printInfo("relational_expression", "relational_expression > shift_expression"); 
                             if(typeCheck((yyvsp[-2].expression)->symbol, (yyvsp[0].expression)->symbol)) {
@@ -2406,7 +2406,7 @@ yyreduce:
     break;
 
   case 48: /* relational_expression: relational_expression LESS_EQUAL_THAN shift_expression  */
-#line 472 "ass6_20CS10029_20CS30042.y"
+#line 472 "ass6_20CS30042.y"
                                                                              { 
                             printInfo("relational_expression", "relational_expression <= shift_expression"); 
                             if(typeCheck((yyvsp[-2].expression)->symbol, (yyvsp[0].expression)->symbol)) {
@@ -2422,7 +2422,7 @@ yyreduce:
     break;
 
   case 49: /* relational_expression: relational_expression GREATER_EQUAL_THAN shift_expression  */
-#line 483 "ass6_20CS10029_20CS30042.y"
+#line 483 "ass6_20CS30042.y"
                                                                                 { 
                             printInfo("relational_expression", "relational_expression >= shift_expression"); 
                             if(typeCheck((yyvsp[-2].expression)->symbol, (yyvsp[0].expression)->symbol)) {
@@ -2438,13 +2438,13 @@ yyreduce:
     break;
 
   case 50: /* equality_expression: relational_expression  */
-#line 498 "ass6_20CS10029_20CS30042.y"
+#line 498 "ass6_20CS30042.y"
                         { printInfo("equality_expression", "relational_expression"); (yyval.expression) = (yyvsp[0].expression); }
 #line 2444 "y.tab.c"
     break;
 
   case 51: /* equality_expression: equality_expression EQUALS relational_expression  */
-#line 499 "ass6_20CS10029_20CS30042.y"
+#line 499 "ass6_20CS30042.y"
                                                                        { 
                             printInfo("equality_expression", "equality_expression == relational_expression"); 
                             if(typeCheck((yyvsp[-2].expression)->symbol, (yyvsp[0].expression)->symbol)) {
@@ -2460,7 +2460,7 @@ yyreduce:
     break;
 
   case 52: /* equality_expression: equality_expression NOT_EQUALS relational_expression  */
-#line 510 "ass6_20CS10029_20CS30042.y"
+#line 510 "ass6_20CS30042.y"
                                                                            { 
                             printInfo("equality_expression", "equality_expression != relational_expression"); 
                             if(typeCheck((yyvsp[-2].expression)->symbol, (yyvsp[0].expression)->symbol)) {
@@ -2476,13 +2476,13 @@ yyreduce:
     break;
 
   case 53: /* AND_expression: equality_expression  */
-#line 526 "ass6_20CS10029_20CS30042.y"
+#line 526 "ass6_20CS30042.y"
                         { printInfo("AND_expression", "equality_expression"); (yyval.expression) = (yyvsp[0].expression); }
 #line 2482 "y.tab.c"
     break;
 
   case 54: /* AND_expression: AND_expression BITWISE_AND equality_expression  */
-#line 527 "ass6_20CS10029_20CS30042.y"
+#line 527 "ass6_20CS30042.y"
                                                                      { 
                             printInfo("AND_expression", "AND_expression & equality_expression"); 
                             (yyvsp[-2].expression)->toInt(); (yyvsp[0].expression)->toInt();
@@ -2494,13 +2494,13 @@ yyreduce:
     break;
 
   case 55: /* exclusive_OR_expression: AND_expression  */
-#line 538 "ass6_20CS10029_20CS30042.y"
+#line 538 "ass6_20CS30042.y"
                         { printInfo("exclusive_OR_expression", "AND_expression");  (yyval.expression) = (yyvsp[0].expression); }
 #line 2500 "y.tab.c"
     break;
 
   case 56: /* exclusive_OR_expression: exclusive_OR_expression BITWISE_XOR AND_expression  */
-#line 539 "ass6_20CS10029_20CS30042.y"
+#line 539 "ass6_20CS30042.y"
                                                                          { 
                             printInfo("exclusive_OR_expression", "exclusive_OR_expression ^ AND_expression"); 
                             (yyvsp[-2].expression)->toInt(); (yyvsp[0].expression)->toInt();
@@ -2512,13 +2512,13 @@ yyreduce:
     break;
 
   case 57: /* inclusive_OR_expression: exclusive_OR_expression  */
-#line 550 "ass6_20CS10029_20CS30042.y"
+#line 550 "ass6_20CS30042.y"
                         { printInfo("inclusive_OR_expression", "exclusive_OR_expression"); (yyval.expression) = (yyvsp[0].expression); }
 #line 2518 "y.tab.c"
     break;
 
   case 58: /* inclusive_OR_expression: inclusive_OR_expression BITWISE_OR exclusive_OR_expression  */
-#line 551 "ass6_20CS10029_20CS30042.y"
+#line 551 "ass6_20CS30042.y"
                                                                                  { 
                             printInfo("inclusive_OR_expression", "inclusive_OR_expression | exclusive_OR_expression"); 
                             (yyvsp[-2].expression)->toInt(); (yyvsp[0].expression)->toInt();
@@ -2530,13 +2530,13 @@ yyreduce:
     break;
 
   case 59: /* M: %empty  */
-#line 570 "ass6_20CS10029_20CS30042.y"
+#line 570 "ass6_20CS30042.y"
     { printInfo("M", "epsilon"); (yyval.instrNo) = nextInstruction(); }
 #line 2536 "y.tab.c"
     break;
 
   case 60: /* N: %empty  */
-#line 572 "ass6_20CS10029_20CS30042.y"
+#line 572 "ass6_20CS30042.y"
     { printInfo("N", "epsilon"); (yyval.statement) = new Statement();
       (yyval.statement)->nextList = makeList(nextInstruction()); QuadArray::emit("goto", "");
     }
@@ -2544,13 +2544,13 @@ yyreduce:
     break;
 
   case 61: /* logical_AND_expression: inclusive_OR_expression  */
-#line 578 "ass6_20CS10029_20CS30042.y"
+#line 578 "ass6_20CS30042.y"
                         { printInfo("logical_AND_expression", "inclusive_OR_expression"); (yyval.expression) = (yyvsp[0].expression); }
 #line 2550 "y.tab.c"
     break;
 
   case 62: /* logical_AND_expression: logical_AND_expression LOGICAL_AND M inclusive_OR_expression  */
-#line 579 "ass6_20CS10029_20CS30042.y"
+#line 579 "ass6_20CS30042.y"
                                                                                    { 
                             printInfo("logical_AND_expression", "logical_AND_expression && inclusive_OR_expression");
                             (yyvsp[-3].expression)->toBool(); (yyvsp[0].expression)->toBool();
@@ -2562,13 +2562,13 @@ yyreduce:
     break;
 
   case 63: /* logical_OR_expression: logical_AND_expression  */
-#line 590 "ass6_20CS10029_20CS30042.y"
+#line 590 "ass6_20CS30042.y"
                         { printInfo("logical_OR_expression", "logical_AND_expression");  (yyval.expression) = (yyvsp[0].expression); }
 #line 2568 "y.tab.c"
     break;
 
   case 64: /* logical_OR_expression: logical_OR_expression LOGICAL_OR M logical_AND_expression  */
-#line 591 "ass6_20CS10029_20CS30042.y"
+#line 591 "ass6_20CS30042.y"
                                                                                 { 
                             printInfo("logical_OR_expression", "logical_OR_expression || logical_AND_expression"); 
                             (yyvsp[-3].expression)->toBool(); (yyvsp[0].expression)->toBool();
@@ -2581,13 +2581,13 @@ yyreduce:
     break;
 
   case 65: /* conditional_expression: logical_OR_expression  */
-#line 603 "ass6_20CS10029_20CS30042.y"
+#line 603 "ass6_20CS30042.y"
                         { printInfo("conditional_expression", "logical_OR_expression"); (yyval.expression) = (yyvsp[0].expression); }
 #line 2587 "y.tab.c"
     break;
 
   case 66: /* conditional_expression: logical_OR_expression N QUESTION_MARK M expression N COLON M conditional_expression  */
-#line 604 "ass6_20CS10029_20CS30042.y"
+#line 604 "ass6_20CS30042.y"
                                                                                                           { 
                             printInfo("conditional_expression", "logical_OR_expression ? expression : conditional_expression"); 
                             (yyval.expression)->symbol = SymbolTable::gentemp((yyvsp[-4].expression)->symbol->type->type);
@@ -2608,13 +2608,13 @@ yyreduce:
     break;
 
   case 67: /* assignment_expression: conditional_expression  */
-#line 624 "ass6_20CS10029_20CS30042.y"
+#line 624 "ass6_20CS30042.y"
                         { printInfo("assignment_expression", "conditional_expression");  (yyval.expression) = (yyvsp[0].expression); }
 #line 2614 "y.tab.c"
     break;
 
   case 68: /* assignment_expression: unary_expression assignment_operator assignment_expression  */
-#line 625 "ass6_20CS10029_20CS30042.y"
+#line 625 "ass6_20CS30042.y"
                                                                                  { 
                             printInfo("assignment_expression", "unary_expression assignment_operator assignment_expression"); 
                             if((yyvsp[-2].array)->type == Array::ARRAY) {
@@ -2635,163 +2635,163 @@ yyreduce:
     break;
 
   case 69: /* assignment_operator: ASSIGNMENT  */
-#line 645 "ass6_20CS10029_20CS30042.y"
+#line 645 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", "="); }
 #line 2641 "y.tab.c"
     break;
 
   case 70: /* assignment_operator: ASTERISK_ASSIGNMENT  */
-#line 647 "ass6_20CS10029_20CS30042.y"
+#line 647 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", "*="); }
 #line 2647 "y.tab.c"
     break;
 
   case 71: /* assignment_operator: SLASH_ASSIGNMENT  */
-#line 649 "ass6_20CS10029_20CS30042.y"
+#line 649 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", "/="); }
 #line 2653 "y.tab.c"
     break;
 
   case 72: /* assignment_operator: MODULO_ASSIGNMENT  */
-#line 651 "ass6_20CS10029_20CS30042.y"
+#line 651 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", "%="); }
 #line 2659 "y.tab.c"
     break;
 
   case 73: /* assignment_operator: PLUS_ASSIGNMENT  */
-#line 653 "ass6_20CS10029_20CS30042.y"
+#line 653 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", "+= "); }
 #line 2665 "y.tab.c"
     break;
 
   case 74: /* assignment_operator: MINUS_ASSIGNMENT  */
-#line 655 "ass6_20CS10029_20CS30042.y"
+#line 655 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", "-= "); }
 #line 2671 "y.tab.c"
     break;
 
   case 75: /* assignment_operator: LEFT_SHIFT_ASSIGNMENT  */
-#line 657 "ass6_20CS10029_20CS30042.y"
+#line 657 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", "<<="); }
 #line 2677 "y.tab.c"
     break;
 
   case 76: /* assignment_operator: RIGHT_SHIFT_ASSIGNMENT  */
-#line 659 "ass6_20CS10029_20CS30042.y"
+#line 659 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", ">>="); }
 #line 2683 "y.tab.c"
     break;
 
   case 77: /* assignment_operator: BITWISE_AND_ASSIGNMENT  */
-#line 661 "ass6_20CS10029_20CS30042.y"
+#line 661 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", "&="); }
 #line 2689 "y.tab.c"
     break;
 
   case 78: /* assignment_operator: BITWISE_XOR_ASSIGNMENT  */
-#line 663 "ass6_20CS10029_20CS30042.y"
+#line 663 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", "^="); }
 #line 2695 "y.tab.c"
     break;
 
   case 79: /* assignment_operator: BITWISE_OR_ASSIGNMENT  */
-#line 665 "ass6_20CS10029_20CS30042.y"
+#line 665 "ass6_20CS30042.y"
                         { printInfo("assignment_operator", "|="); }
 #line 2701 "y.tab.c"
     break;
 
   case 80: /* expression: assignment_expression  */
-#line 670 "ass6_20CS10029_20CS30042.y"
+#line 670 "ass6_20CS30042.y"
                         { printInfo("expression", "assignment_expression"); (yyval.expression) = (yyvsp[0].expression); }
 #line 2707 "y.tab.c"
     break;
 
   case 81: /* expression: expression COMMA assignment_expression  */
-#line 672 "ass6_20CS10029_20CS30042.y"
+#line 672 "ass6_20CS30042.y"
                         { printInfo("expression", "expression , assignment_expression"); }
 #line 2713 "y.tab.c"
     break;
 
   case 82: /* constant_expression: conditional_expression  */
-#line 677 "ass6_20CS10029_20CS30042.y"
+#line 677 "ass6_20CS30042.y"
                         { printInfo("constant_expression", "conditional_expression"); }
 #line 2719 "y.tab.c"
     break;
 
   case 83: /* declaration: declaration_specifiers init_declarator_list_opt SEMI_COLON  */
-#line 683 "ass6_20CS10029_20CS30042.y"
+#line 683 "ass6_20CS30042.y"
                         { printInfo("declaration", "declaration_specifiers init_declarator_list_opt ;"); }
 #line 2725 "y.tab.c"
     break;
 
   case 84: /* init_declarator_list_opt: init_declarator_list  */
-#line 688 "ass6_20CS10029_20CS30042.y"
+#line 688 "ass6_20CS30042.y"
                         { printInfo("init_declarator_list_opt", "init_declarator_list"); }
 #line 2731 "y.tab.c"
     break;
 
   case 85: /* init_declarator_list_opt: %empty  */
-#line 690 "ass6_20CS10029_20CS30042.y"
+#line 690 "ass6_20CS30042.y"
                         { printInfo("init_declarator_list_opt", "Epsilon"); }
 #line 2737 "y.tab.c"
     break;
 
   case 86: /* declaration_specifiers: storage_class_specifier declaration_specifiers_opt  */
-#line 694 "ass6_20CS10029_20CS30042.y"
+#line 694 "ass6_20CS30042.y"
                         { printInfo("declaration_specifiers", "storage_class_specifier declaration_specifiers_opt"); }
 #line 2743 "y.tab.c"
     break;
 
   case 87: /* declaration_specifiers: type_specifier declaration_specifiers_opt  */
-#line 696 "ass6_20CS10029_20CS30042.y"
+#line 696 "ass6_20CS30042.y"
                         { printInfo("declaration_specifiers", "type_specifier declaration_specifiers_opt"); }
 #line 2749 "y.tab.c"
     break;
 
   case 88: /* declaration_specifiers: type_qualifier declaration_specifiers_opt  */
-#line 698 "ass6_20CS10029_20CS30042.y"
+#line 698 "ass6_20CS30042.y"
                         { printInfo("declaration_specifiers", "type_qualifier declaration_specifiers_opt"); }
 #line 2755 "y.tab.c"
     break;
 
   case 89: /* declaration_specifiers: function_specifier declaration_specifiers_opt  */
-#line 700 "ass6_20CS10029_20CS30042.y"
+#line 700 "ass6_20CS30042.y"
                         { printInfo("declaration_specifiers", "function_specifier declaration_specifiers_opt"); }
 #line 2761 "y.tab.c"
     break;
 
   case 90: /* declaration_specifiers_opt: declaration_specifiers  */
-#line 705 "ass6_20CS10029_20CS30042.y"
+#line 705 "ass6_20CS30042.y"
                         { printInfo("declaration_specifiers_opt", "declaration_specifiers"); }
 #line 2767 "y.tab.c"
     break;
 
   case 91: /* declaration_specifiers_opt: %empty  */
-#line 707 "ass6_20CS10029_20CS30042.y"
+#line 707 "ass6_20CS30042.y"
                         { printInfo("declaration_specifiers_opt", "Epsilon "); }
 #line 2773 "y.tab.c"
     break;
 
   case 92: /* init_declarator_list: init_declarator  */
-#line 712 "ass6_20CS10029_20CS30042.y"
+#line 712 "ass6_20CS30042.y"
                         { printInfo("init_declarator_list", "init_declarator"); }
 #line 2779 "y.tab.c"
     break;
 
   case 93: /* init_declarator_list: init_declarator_list COMMA init_declarator  */
-#line 714 "ass6_20CS10029_20CS30042.y"
+#line 714 "ass6_20CS30042.y"
                         { printInfo("init_declarator_list", "init_declarator_list , init_declarator"); }
 #line 2785 "y.tab.c"
     break;
 
   case 94: /* init_declarator: declarator  */
-#line 719 "ass6_20CS10029_20CS30042.y"
+#line 719 "ass6_20CS30042.y"
                         { printInfo("init_declarator", "declarator"); (yyval.symbol) = (yyvsp[0].symbol); }
 #line 2791 "y.tab.c"
     break;
 
   case 95: /* init_declarator: declarator ASSIGNMENT initialiser  */
-#line 720 "ass6_20CS10029_20CS30042.y"
+#line 720 "ass6_20CS30042.y"
                                                         { 
                             printInfo("init_declarator", "declarator = initialiser");
                             // if there is some initial value assign it 
@@ -2803,212 +2803,212 @@ yyreduce:
     break;
 
   case 96: /* storage_class_specifier: EXTERN  */
-#line 731 "ass6_20CS10029_20CS30042.y"
+#line 731 "ass6_20CS30042.y"
                         { printInfo("storage_class_specifier", "extern"); }
 #line 2809 "y.tab.c"
     break;
 
   case 97: /* storage_class_specifier: STATIC  */
-#line 733 "ass6_20CS10029_20CS30042.y"
+#line 733 "ass6_20CS30042.y"
                         { printInfo("storage_class_specifier", "static"); }
 #line 2815 "y.tab.c"
     break;
 
   case 98: /* storage_class_specifier: AUTO  */
-#line 735 "ass6_20CS10029_20CS30042.y"
+#line 735 "ass6_20CS30042.y"
                         { printInfo("storage_class_specifier", "auto"); }
 #line 2821 "y.tab.c"
     break;
 
   case 99: /* storage_class_specifier: REGISTER  */
-#line 737 "ass6_20CS10029_20CS30042.y"
+#line 737 "ass6_20CS30042.y"
                         { printInfo("storage_class_specifier", "register"); }
 #line 2827 "y.tab.c"
     break;
 
   case 100: /* type_specifier: VOIDTYPE  */
-#line 742 "ass6_20CS10029_20CS30042.y"
+#line 742 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "void"); currentType = SymbolType::VOID; }
 #line 2833 "y.tab.c"
     break;
 
   case 101: /* type_specifier: CHARTYPE  */
-#line 744 "ass6_20CS10029_20CS30042.y"
+#line 744 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "char"); 
                             currentType = SymbolType::CHAR; }
 #line 2840 "y.tab.c"
     break;
 
   case 102: /* type_specifier: SHORT  */
-#line 747 "ass6_20CS10029_20CS30042.y"
+#line 747 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "short"); }
 #line 2846 "y.tab.c"
     break;
 
   case 103: /* type_specifier: INTTYPE  */
-#line 749 "ass6_20CS10029_20CS30042.y"
+#line 749 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "int"); currentType = SymbolType::INT; }
 #line 2852 "y.tab.c"
     break;
 
   case 104: /* type_specifier: LONG  */
-#line 751 "ass6_20CS10029_20CS30042.y"
+#line 751 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "long"); }
 #line 2858 "y.tab.c"
     break;
 
   case 105: /* type_specifier: FLOATTYPE  */
-#line 753 "ass6_20CS10029_20CS30042.y"
+#line 753 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "float"); currentType = SymbolType::FLOAT;}
 #line 2864 "y.tab.c"
     break;
 
   case 106: /* type_specifier: DOUBLE  */
-#line 755 "ass6_20CS10029_20CS30042.y"
+#line 755 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "double"); }
 #line 2870 "y.tab.c"
     break;
 
   case 107: /* type_specifier: SIGNED  */
-#line 757 "ass6_20CS10029_20CS30042.y"
+#line 757 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "signed"); }
 #line 2876 "y.tab.c"
     break;
 
   case 108: /* type_specifier: UNSIGNED  */
-#line 759 "ass6_20CS10029_20CS30042.y"
+#line 759 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "unsigned"); }
 #line 2882 "y.tab.c"
     break;
 
   case 109: /* type_specifier: _BOOL  */
-#line 761 "ass6_20CS10029_20CS30042.y"
+#line 761 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "_Bool"); }
 #line 2888 "y.tab.c"
     break;
 
   case 110: /* type_specifier: _COMPLEX  */
-#line 763 "ass6_20CS10029_20CS30042.y"
+#line 763 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "_Complex"); }
 #line 2894 "y.tab.c"
     break;
 
   case 111: /* type_specifier: _IMAGINARY  */
-#line 765 "ass6_20CS10029_20CS30042.y"
+#line 765 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "_Imaginary"); }
 #line 2900 "y.tab.c"
     break;
 
   case 112: /* type_specifier: enum_specifier  */
-#line 767 "ass6_20CS10029_20CS30042.y"
+#line 767 "ass6_20CS30042.y"
                         { printInfo("type_specifier", "enum_specifier"); }
 #line 2906 "y.tab.c"
     break;
 
   case 113: /* specifier_qualifier_list: type_specifier specifier_qualifier_list_opt  */
-#line 772 "ass6_20CS10029_20CS30042.y"
+#line 772 "ass6_20CS30042.y"
                         { printInfo("specifier_qualifier_list", "type_specifier specifier_qualifier_list_opt"); }
 #line 2912 "y.tab.c"
     break;
 
   case 114: /* specifier_qualifier_list: type_qualifier specifier_qualifier_list_opt  */
-#line 774 "ass6_20CS10029_20CS30042.y"
+#line 774 "ass6_20CS30042.y"
                         { printInfo("specifier_qualifier_list", "type_qualifier specifier_qualifier_list_opt"); }
 #line 2918 "y.tab.c"
     break;
 
   case 115: /* specifier_qualifier_list_opt: specifier_qualifier_list  */
-#line 779 "ass6_20CS10029_20CS30042.y"
+#line 779 "ass6_20CS30042.y"
                         { printInfo("specifier_qualifier_list_opt", "specifier_qualifier_list"); }
 #line 2924 "y.tab.c"
     break;
 
   case 116: /* specifier_qualifier_list_opt: %empty  */
-#line 781 "ass6_20CS10029_20CS30042.y"
+#line 781 "ass6_20CS30042.y"
                         { printInfo("specifier_qualifier_list_opt", "Epsilon"); }
 #line 2930 "y.tab.c"
     break;
 
   case 117: /* enum_specifier: ENUM identifier_opt LEFT_CURLY_BRACE enumerator_list RIGHT_CURLY_BRACE  */
-#line 786 "ass6_20CS10029_20CS30042.y"
+#line 786 "ass6_20CS30042.y"
                         { printInfo("enum_specifier", "enum identifier_opt { enumerator_list }"); }
 #line 2936 "y.tab.c"
     break;
 
   case 118: /* enum_specifier: ENUM identifier_opt LEFT_CURLY_BRACE enumerator_list COMMA RIGHT_CURLY_BRACE  */
-#line 788 "ass6_20CS10029_20CS30042.y"
+#line 788 "ass6_20CS30042.y"
                         { printInfo("enum_specifier", "enum identifier_opt { enumerator_list , }"); }
 #line 2942 "y.tab.c"
     break;
 
   case 119: /* enum_specifier: ENUM IDENTIFIER  */
-#line 790 "ass6_20CS10029_20CS30042.y"
+#line 790 "ass6_20CS30042.y"
                         { printInfo("enum_specifier", "enum IDENTIFIER"); }
 #line 2948 "y.tab.c"
     break;
 
   case 120: /* identifier_opt: IDENTIFIER  */
-#line 795 "ass6_20CS10029_20CS30042.y"
+#line 795 "ass6_20CS30042.y"
                         { printInfo("identifier_opt", "IDENTIFIER"); }
 #line 2954 "y.tab.c"
     break;
 
   case 121: /* identifier_opt: %empty  */
-#line 797 "ass6_20CS10029_20CS30042.y"
+#line 797 "ass6_20CS30042.y"
                         { printInfo("identifier_opt", "epsilon"); }
 #line 2960 "y.tab.c"
     break;
 
   case 122: /* enumerator_list: enumerator  */
-#line 802 "ass6_20CS10029_20CS30042.y"
+#line 802 "ass6_20CS30042.y"
                         { printInfo("enumerator_list", "enumerator"); }
 #line 2966 "y.tab.c"
     break;
 
   case 123: /* enumerator_list: enumerator_list COMMA enumerator  */
-#line 804 "ass6_20CS10029_20CS30042.y"
+#line 804 "ass6_20CS30042.y"
                         { printInfo("enumerator_list", "enumerator_list , enumerator"); }
 #line 2972 "y.tab.c"
     break;
 
   case 124: /* enumerator: IDENTIFIER  */
-#line 809 "ass6_20CS10029_20CS30042.y"
+#line 809 "ass6_20CS30042.y"
                         { printInfo("enumerator", "ENUMERATION_CONSTANT"); }
 #line 2978 "y.tab.c"
     break;
 
   case 125: /* enumerator: IDENTIFIER ASSIGNMENT constant_expression  */
-#line 811 "ass6_20CS10029_20CS30042.y"
+#line 811 "ass6_20CS30042.y"
                         { printInfo("enumerator", "ENUMERATION_CONSTANT = constant_expression"); }
 #line 2984 "y.tab.c"
     break;
 
   case 126: /* type_qualifier: CONST  */
-#line 816 "ass6_20CS10029_20CS30042.y"
+#line 816 "ass6_20CS30042.y"
                         { printInfo("type_qualifier", "const"); }
 #line 2990 "y.tab.c"
     break;
 
   case 127: /* type_qualifier: RESTRICT  */
-#line 818 "ass6_20CS10029_20CS30042.y"
+#line 818 "ass6_20CS30042.y"
                         { printInfo("type_qualifier", "restrict"); }
 #line 2996 "y.tab.c"
     break;
 
   case 128: /* type_qualifier: VOLATILE  */
-#line 820 "ass6_20CS10029_20CS30042.y"
+#line 820 "ass6_20CS30042.y"
                         { printInfo("type_qualifier", "volatile"); }
 #line 3002 "y.tab.c"
     break;
 
   case 129: /* function_specifier: INLINE  */
-#line 825 "ass6_20CS10029_20CS30042.y"
+#line 825 "ass6_20CS30042.y"
                         { printInfo("function_specifier", "inline"); }
 #line 3008 "y.tab.c"
     break;
 
   case 130: /* declarator: pointer direct_declarator  */
-#line 829 "ass6_20CS10029_20CS30042.y"
+#line 829 "ass6_20CS30042.y"
                                               { 
                             printInfo("declarator", "pointer direct_declarator"); 
                             SymbolType *it = (yyvsp[-1].symbolType);
@@ -3021,13 +3021,13 @@ yyreduce:
     break;
 
   case 131: /* declarator: direct_declarator  */
-#line 838 "ass6_20CS10029_20CS30042.y"
+#line 838 "ass6_20CS30042.y"
                         { printInfo("declarator", "direct_declarator"); }
 #line 3027 "y.tab.c"
     break;
 
   case 132: /* change_scope: %empty  */
-#line 841 "ass6_20CS10029_20CS30042.y"
+#line 841 "ass6_20CS30042.y"
                     {if(currentSymbol->nestedTable == NULL) changeTable(new SymbolTable(""));
                      else {
                             changeTable(currentSymbol->nestedTable);
@@ -3038,7 +3038,7 @@ yyreduce:
     break;
 
   case 133: /* direct_declarator: IDENTIFIER  */
-#line 850 "ass6_20CS10029_20CS30042.y"
+#line 850 "ass6_20CS30042.y"
                                 { 
                             printInfo("direct_declarator", "IDENTIFIER"); 
                             (yyval.symbol) = (yyvsp[0].symbol)->update(new SymbolType(currentType)); // update type to the last type seen
@@ -3048,25 +3048,25 @@ yyreduce:
     break;
 
   case 134: /* direct_declarator: LEFT_PARENTHESIS declarator RIGHT_PARENTHESIS  */
-#line 856 "ass6_20CS10029_20CS30042.y"
+#line 856 "ass6_20CS30042.y"
                         { printInfo("direct_declarator", "( declarator )"); (yyval.symbol) = (yyvsp[-1].symbol); }
 #line 3054 "y.tab.c"
     break;
 
   case 135: /* direct_declarator: direct_declarator LEFT_SQUARE_BRACE type_qualifier_list assignment_expression RIGHT_SQUARE_BRACE  */
-#line 858 "ass6_20CS10029_20CS30042.y"
+#line 858 "ass6_20CS30042.y"
                         { printInfo("direct_declarator", "direct_declarator [ type_qualifier_list assignment_expression ]"); }
 #line 3060 "y.tab.c"
     break;
 
   case 136: /* direct_declarator: direct_declarator LEFT_SQUARE_BRACE type_qualifier_list RIGHT_SQUARE_BRACE  */
-#line 860 "ass6_20CS10029_20CS30042.y"
+#line 860 "ass6_20CS30042.y"
                         { printInfo("direct_declarator", "direct_declarator [ type_qualifier_list ]"); }
 #line 3066 "y.tab.c"
     break;
 
   case 137: /* direct_declarator: direct_declarator LEFT_SQUARE_BRACE assignment_expression RIGHT_SQUARE_BRACE  */
-#line 861 "ass6_20CS10029_20CS30042.y"
+#line 861 "ass6_20CS30042.y"
                                                                                                    { 
                             printInfo("direct_declarator", "direct_declarator [ assignment_expression ]"); 
                             SymbolType *it1 = (yyvsp[-3].symbol)->type, *it2 = NULL;
@@ -3086,7 +3086,7 @@ yyreduce:
     break;
 
   case 138: /* direct_declarator: direct_declarator LEFT_SQUARE_BRACE RIGHT_SQUARE_BRACE  */
-#line 876 "ass6_20CS10029_20CS30042.y"
+#line 876 "ass6_20CS30042.y"
                                                                              { 
                             printInfo("direct_declarator", "direct_declarator [ ]"); 
                             // same as the previous rule, just we dont know the size so put it as 0
@@ -3107,37 +3107,37 @@ yyreduce:
     break;
 
   case 139: /* direct_declarator: direct_declarator LEFT_SQUARE_BRACE STATIC type_qualifier_list assignment_expression RIGHT_SQUARE_BRACE  */
-#line 893 "ass6_20CS10029_20CS30042.y"
+#line 893 "ass6_20CS30042.y"
                         { printInfo("direct_declarator", "direct_declarator [ static type_qualifier_list assignment_expression ]"); }
 #line 3113 "y.tab.c"
     break;
 
   case 140: /* direct_declarator: direct_declarator LEFT_SQUARE_BRACE STATIC assignment_expression RIGHT_SQUARE_BRACE  */
-#line 895 "ass6_20CS10029_20CS30042.y"
+#line 895 "ass6_20CS30042.y"
                         { printInfo("direct_declarator", "direct_declarator [ assignment_expression ]"); }
 #line 3119 "y.tab.c"
     break;
 
   case 141: /* direct_declarator: direct_declarator LEFT_SQUARE_BRACE type_qualifier_list STATIC assignment_expression RIGHT_SQUARE_BRACE  */
-#line 897 "ass6_20CS10029_20CS30042.y"
+#line 897 "ass6_20CS30042.y"
                         { printInfo("direct_declarator", "direct_declarator [ type_qualifier_list static assignment_expression ]"); }
 #line 3125 "y.tab.c"
     break;
 
   case 142: /* direct_declarator: direct_declarator LEFT_SQUARE_BRACE type_qualifier_list ASTERISK RIGHT_SQUARE_BRACE  */
-#line 899 "ass6_20CS10029_20CS30042.y"
+#line 899 "ass6_20CS30042.y"
                         { printInfo("direct_declarator", "direct_declarator [ type_qualifier_list * ]"); }
 #line 3131 "y.tab.c"
     break;
 
   case 143: /* direct_declarator: direct_declarator LEFT_SQUARE_BRACE ASTERISK RIGHT_SQUARE_BRACE  */
-#line 901 "ass6_20CS10029_20CS30042.y"
+#line 901 "ass6_20CS30042.y"
                         { printInfo("direct_declarator", "direct_declarator [ * ]"); }
 #line 3137 "y.tab.c"
     break;
 
   case 144: /* direct_declarator: direct_declarator LEFT_PARENTHESIS change_scope parameter_type_list RIGHT_PARENTHESIS  */
-#line 902 "ass6_20CS10029_20CS30042.y"
+#line 902 "ass6_20CS30042.y"
                                                                                                             {
                             printInfo("direct_declarator", "direct_declarator ( parameter_type_list )"); 
                             // function declaration
@@ -3156,13 +3156,13 @@ yyreduce:
     break;
 
   case 145: /* direct_declarator: direct_declarator LEFT_PARENTHESIS identifier_list RIGHT_PARENTHESIS  */
-#line 917 "ass6_20CS10029_20CS30042.y"
+#line 917 "ass6_20CS30042.y"
                         { printInfo("direct_declarator", "direct_declarator ( identifier_list )"); }
 #line 3162 "y.tab.c"
     break;
 
   case 146: /* direct_declarator: direct_declarator LEFT_PARENTHESIS change_scope RIGHT_PARENTHESIS  */
-#line 918 "ass6_20CS10029_20CS30042.y"
+#line 918 "ass6_20CS30042.y"
                                                                                         { 
                             printInfo("direct_declarator", "direct_declarator ( )"); 
                             // same as the previous rule
@@ -3181,19 +3181,19 @@ yyreduce:
     break;
 
   case 147: /* type_qualifier_list_opt: type_qualifier_list  */
-#line 936 "ass6_20CS10029_20CS30042.y"
+#line 936 "ass6_20CS30042.y"
                         { printInfo("type_qualifier_list_opt", "type_qualifier_list"); }
 #line 3187 "y.tab.c"
     break;
 
   case 148: /* type_qualifier_list_opt: %empty  */
-#line 938 "ass6_20CS10029_20CS30042.y"
+#line 938 "ass6_20CS30042.y"
                         { printInfo("type_qualifier_list_opt", "Epsilon"); }
 #line 3193 "y.tab.c"
     break;
 
   case 149: /* pointer: ASTERISK type_qualifier_list_opt  */
-#line 947 "ass6_20CS10029_20CS30042.y"
+#line 947 "ass6_20CS30042.y"
                                                      { 
                             printInfo("pointer", "* type_qualifier_list_opt"); 
                             // fresh pointer
@@ -3203,7 +3203,7 @@ yyreduce:
     break;
 
   case 150: /* pointer: ASTERISK type_qualifier_list_opt pointer  */
-#line 952 "ass6_20CS10029_20CS30042.y"
+#line 952 "ass6_20CS30042.y"
                                                                { 
                             printInfo("pointer", "* type_qualifier_list_opt pointer"); 
                             // nested pointer
@@ -3213,43 +3213,43 @@ yyreduce:
     break;
 
   case 151: /* type_qualifier_list: type_qualifier  */
-#line 961 "ass6_20CS10029_20CS30042.y"
+#line 961 "ass6_20CS30042.y"
                         { printInfo("type_qualifier_list", "type_qualifier"); }
 #line 3219 "y.tab.c"
     break;
 
   case 152: /* type_qualifier_list: type_qualifier_list type_qualifier  */
-#line 963 "ass6_20CS10029_20CS30042.y"
+#line 963 "ass6_20CS30042.y"
                         { printInfo("type_qualifier_list", "type_qualifier_list type_qualifier"); }
 #line 3225 "y.tab.c"
     break;
 
   case 153: /* parameter_type_list: parameter_list  */
-#line 968 "ass6_20CS10029_20CS30042.y"
+#line 968 "ass6_20CS30042.y"
                         { printInfo("parameter_type_list", "parameter_list"); }
 #line 3231 "y.tab.c"
     break;
 
   case 154: /* parameter_type_list: parameter_list COMMA ELLIPSIS  */
-#line 970 "ass6_20CS10029_20CS30042.y"
+#line 970 "ass6_20CS30042.y"
                         { printInfo("parameter_type_list", "parameter_list , ..."); }
 #line 3237 "y.tab.c"
     break;
 
   case 155: /* parameter_list: parameter_declaration  */
-#line 975 "ass6_20CS10029_20CS30042.y"
+#line 975 "ass6_20CS30042.y"
                         { printInfo("parameter_list", "parameter_declaration"); }
 #line 3243 "y.tab.c"
     break;
 
   case 156: /* parameter_list: parameter_list COMMA parameter_declaration  */
-#line 977 "ass6_20CS10029_20CS30042.y"
+#line 977 "ass6_20CS30042.y"
                         { printInfo("parameter_list", "parameter_list , parameter_declaration"); }
 #line 3249 "y.tab.c"
     break;
 
   case 157: /* parameter_declaration: declaration_specifiers declarator  */
-#line 982 "ass6_20CS10029_20CS30042.y"
+#line 982 "ass6_20CS30042.y"
                         { printInfo("parameter_declaration", "declaration_specifiers declarator"); 
                                 (yyvsp[0].symbol)->category = Symbol::PARAMETER; 
                                 currentST->parameters.push_back((yyvsp[0].symbol)->name); //**************
@@ -3258,115 +3258,115 @@ yyreduce:
     break;
 
   case 158: /* parameter_declaration: declaration_specifiers  */
-#line 987 "ass6_20CS10029_20CS30042.y"
+#line 987 "ass6_20CS30042.y"
                         { printInfo("parameter_declaration", "declaration_specifiers"); }
 #line 3264 "y.tab.c"
     break;
 
   case 159: /* identifier_list: IDENTIFIER  */
-#line 992 "ass6_20CS10029_20CS30042.y"
+#line 992 "ass6_20CS30042.y"
                         { printInfo("identifier_list", "IDENTIFIER"); }
 #line 3270 "y.tab.c"
     break;
 
   case 160: /* identifier_list: identifier_list COMMA IDENTIFIER  */
-#line 994 "ass6_20CS10029_20CS30042.y"
+#line 994 "ass6_20CS30042.y"
                         { printInfo("identifier_list", "identifier_list , IDENTIFIER"); }
 #line 3276 "y.tab.c"
     break;
 
   case 161: /* type_name: specifier_qualifier_list  */
-#line 999 "ass6_20CS10029_20CS30042.y"
+#line 999 "ass6_20CS30042.y"
                         { printInfo("type_name", "specifier_qualifier_list"); }
 #line 3282 "y.tab.c"
     break;
 
   case 162: /* initialiser: assignment_expression  */
-#line 1004 "ass6_20CS10029_20CS30042.y"
+#line 1004 "ass6_20CS30042.y"
                 { printInfo("initialiser", "assignment_expression"); (yyval.symbol) = (yyvsp[0].expression)->symbol; }
 #line 3288 "y.tab.c"
     break;
 
   case 163: /* initialiser: LEFT_CURLY_BRACE initialiser_list RIGHT_CURLY_BRACE  */
-#line 1006 "ass6_20CS10029_20CS30042.y"
+#line 1006 "ass6_20CS30042.y"
                 { printInfo("initialiser", "{ initialiser_list }"); }
 #line 3294 "y.tab.c"
     break;
 
   case 164: /* initialiser: LEFT_CURLY_BRACE initialiser_list COMMA RIGHT_CURLY_BRACE  */
-#line 1008 "ass6_20CS10029_20CS30042.y"
+#line 1008 "ass6_20CS30042.y"
                 { printInfo("initialiser", "{ initialiser_list , }"); }
 #line 3300 "y.tab.c"
     break;
 
   case 165: /* initialiser_list: designation_opt initialiser  */
-#line 1013 "ass6_20CS10029_20CS30042.y"
+#line 1013 "ass6_20CS30042.y"
                         { printInfo("initialiser_list", "designation_opt initialiser"); }
 #line 3306 "y.tab.c"
     break;
 
   case 166: /* initialiser_list: initialiser_list COMMA designation_opt initialiser  */
-#line 1015 "ass6_20CS10029_20CS30042.y"
+#line 1015 "ass6_20CS30042.y"
                         { printInfo("initialiser_list", "initialiser_list , designation_opt initialiser"); }
 #line 3312 "y.tab.c"
     break;
 
   case 167: /* designation_opt: designation  */
-#line 1019 "ass6_20CS10029_20CS30042.y"
+#line 1019 "ass6_20CS30042.y"
                         { printInfo("designation_opt", "designation"); }
 #line 3318 "y.tab.c"
     break;
 
   case 168: /* designation_opt: %empty  */
-#line 1021 "ass6_20CS10029_20CS30042.y"
+#line 1021 "ass6_20CS30042.y"
                         { printInfo("designation_opt", "Epsilon"); }
 #line 3324 "y.tab.c"
     break;
 
   case 169: /* designation: designator_list ASSIGNMENT  */
-#line 1026 "ass6_20CS10029_20CS30042.y"
+#line 1026 "ass6_20CS30042.y"
                         { printInfo("designation", "designator_list ="); }
 #line 3330 "y.tab.c"
     break;
 
   case 170: /* designator_list: designator  */
-#line 1031 "ass6_20CS10029_20CS30042.y"
+#line 1031 "ass6_20CS30042.y"
                         { printInfo("designator_list", "designator"); }
 #line 3336 "y.tab.c"
     break;
 
   case 171: /* designator_list: designator_list designator  */
-#line 1033 "ass6_20CS10029_20CS30042.y"
+#line 1033 "ass6_20CS30042.y"
                         { printInfo("designator_list", "designator_list designator"); }
 #line 3342 "y.tab.c"
     break;
 
   case 172: /* designator: LEFT_SQUARE_BRACE constant_expression RIGHT_SQUARE_BRACE  */
-#line 1038 "ass6_20CS10029_20CS30042.y"
+#line 1038 "ass6_20CS30042.y"
                         { printInfo("designator", "[ constant_expression ]"); }
 #line 3348 "y.tab.c"
     break;
 
   case 173: /* designator: DOT IDENTIFIER  */
-#line 1040 "ass6_20CS10029_20CS30042.y"
+#line 1040 "ass6_20CS30042.y"
                         { printInfo("designator", ". IDENTIFIER"); }
 #line 3354 "y.tab.c"
     break;
 
   case 174: /* statement: labeled_statement  */
-#line 1046 "ass6_20CS10029_20CS30042.y"
+#line 1046 "ass6_20CS30042.y"
                         { printInfo("statement", "labeled_statement"); }
 #line 3360 "y.tab.c"
     break;
 
   case 175: /* statement: compound_statement  */
-#line 1048 "ass6_20CS10029_20CS30042.y"
+#line 1048 "ass6_20CS30042.y"
                         { printInfo("statement", "compound_statement"); (yyval.statement) = (yyvsp[0].statement); }
 #line 3366 "y.tab.c"
     break;
 
   case 176: /* statement: expression_statement  */
-#line 1049 "ass6_20CS10029_20CS30042.y"
+#line 1049 "ass6_20CS30042.y"
                                            { 
                             printInfo("statement", "expression_statement"); 
                             (yyval.statement) = new Statement(); (yyval.statement)->nextList = (yyvsp[0].expression)->nextList;
@@ -3375,43 +3375,43 @@ yyreduce:
     break;
 
   case 177: /* statement: selection_statement  */
-#line 1054 "ass6_20CS10029_20CS30042.y"
+#line 1054 "ass6_20CS30042.y"
                         { printInfo("statement", "selection_statement"); (yyval.statement) = (yyvsp[0].statement); }
 #line 3381 "y.tab.c"
     break;
 
   case 178: /* statement: iteration_statement  */
-#line 1056 "ass6_20CS10029_20CS30042.y"
+#line 1056 "ass6_20CS30042.y"
                         { printInfo("statement", "iteration_statement"); (yyval.statement) = (yyvsp[0].statement); }
 #line 3387 "y.tab.c"
     break;
 
   case 179: /* statement: jump_statement  */
-#line 1058 "ass6_20CS10029_20CS30042.y"
+#line 1058 "ass6_20CS30042.y"
                         { printInfo("statement", "jump_statement"); (yyval.statement) = (yyvsp[0].statement); }
 #line 3393 "y.tab.c"
     break;
 
   case 180: /* labeled_statement: IDENTIFIER COLON statement  */
-#line 1063 "ass6_20CS10029_20CS30042.y"
+#line 1063 "ass6_20CS30042.y"
                         { printInfo("labeled_statement", "IDENTIFIER : statement"); }
 #line 3399 "y.tab.c"
     break;
 
   case 181: /* labeled_statement: CASE constant_expression COLON statement  */
-#line 1065 "ass6_20CS10029_20CS30042.y"
+#line 1065 "ass6_20CS30042.y"
                         { printInfo("labeled_statement", "case constant_expression : statement"); }
 #line 3405 "y.tab.c"
     break;
 
   case 182: /* labeled_statement: DEFAULT COLON statement  */
-#line 1067 "ass6_20CS10029_20CS30042.y"
+#line 1067 "ass6_20CS30042.y"
                         { printInfo("labeled_statement", "default : statement"); }
 #line 3411 "y.tab.c"
     break;
 
   case 183: /* compound_statement: LEFT_CURLY_BRACE block_item_list_opt RIGHT_CURLY_BRACE  */
-#line 1086 "ass6_20CS10029_20CS30042.y"
+#line 1086 "ass6_20CS30042.y"
                                                                              { 
                             printInfo("compound_statement", "{ block_item_list_opt }"); 
                             (yyval.statement) = (yyvsp[-1].statement);
@@ -3421,25 +3421,25 @@ yyreduce:
     break;
 
   case 184: /* block_item_list_opt: block_item_list  */
-#line 1095 "ass6_20CS10029_20CS30042.y"
+#line 1095 "ass6_20CS30042.y"
                         { printInfo("block_item_list_opt", "block_item_list"); (yyval.statement) = (yyvsp[0].statement); }
 #line 3427 "y.tab.c"
     break;
 
   case 185: /* block_item_list_opt: %empty  */
-#line 1096 "ass6_20CS10029_20CS30042.y"
+#line 1096 "ass6_20CS30042.y"
                         { printInfo("block_item_list_opt", "epsilon"); (yyval.statement) = new Statement(); }
 #line 3433 "y.tab.c"
     break;
 
   case 186: /* block_item_list: block_item  */
-#line 1101 "ass6_20CS10029_20CS30042.y"
+#line 1101 "ass6_20CS30042.y"
                         { printInfo("block_item_list", "block_item"); (yyval.statement) = (yyvsp[0].statement); }
 #line 3439 "y.tab.c"
     break;
 
   case 187: /* block_item_list: block_item_list M block_item  */
-#line 1102 "ass6_20CS10029_20CS30042.y"
+#line 1102 "ass6_20CS30042.y"
                                                    { 
                             printInfo("block_item_list", "block_item_list block_item"); 
                             (yyval.statement) = (yyvsp[0].statement);
@@ -3449,37 +3449,37 @@ yyreduce:
     break;
 
   case 188: /* block_item: declaration  */
-#line 1111 "ass6_20CS10029_20CS30042.y"
+#line 1111 "ass6_20CS30042.y"
                         { printInfo("block_item", "declaration"); (yyval.statement) = new Statement(); }
 #line 3455 "y.tab.c"
     break;
 
   case 189: /* block_item: statement  */
-#line 1113 "ass6_20CS10029_20CS30042.y"
+#line 1113 "ass6_20CS30042.y"
                         { printInfo("block_item", "statement"); (yyval.statement) = (yyvsp[0].statement); }
 #line 3461 "y.tab.c"
     break;
 
   case 190: /* expression_statement: expression_opt SEMI_COLON  */
-#line 1118 "ass6_20CS10029_20CS30042.y"
+#line 1118 "ass6_20CS30042.y"
                         { printInfo("expression_statement", "expression_opt ;");  (yyval.expression) = (yyvsp[-1].expression); }
 #line 3467 "y.tab.c"
     break;
 
   case 191: /* expression_opt: expression  */
-#line 1123 "ass6_20CS10029_20CS30042.y"
+#line 1123 "ass6_20CS30042.y"
                         { printInfo("expression_opt", "expression"); (yyval.expression) = (yyvsp[0].expression); }
 #line 3473 "y.tab.c"
     break;
 
   case 192: /* expression_opt: %empty  */
-#line 1125 "ass6_20CS10029_20CS30042.y"
+#line 1125 "ass6_20CS30042.y"
                         { printInfo("expression_opt", "epsilon"); (yyval.expression) = new Expression(); }
 #line 3479 "y.tab.c"
     break;
 
   case 193: /* selection_statement: IF LEFT_PARENTHESIS expression RIGHT_PARENTHESIS M statement N  */
-#line 1129 "ass6_20CS10029_20CS30042.y"
+#line 1129 "ass6_20CS30042.y"
                                                                                               { 
                             printInfo("selection_statement", "if ( expression ) statement"); 
                             (yyval.statement) = new Statement(); (yyvsp[-4].expression)->toBool();
@@ -3490,7 +3490,7 @@ yyreduce:
     break;
 
   case 194: /* selection_statement: IF LEFT_PARENTHESIS expression RIGHT_PARENTHESIS M statement N ELSE M statement  */
-#line 1135 "ass6_20CS10029_20CS30042.y"
+#line 1135 "ass6_20CS30042.y"
                                                                                                       { 
                             printInfo("selection_statement", "if ( expression ) statement else statement"); 
                             (yyval.statement) = new Statement(); (yyvsp[-7].expression)->toBool();
@@ -3502,7 +3502,7 @@ yyreduce:
     break;
 
   case 195: /* selection_statement: SWITCH LEFT_PARENTHESIS expression RIGHT_PARENTHESIS statement  */
-#line 1142 "ass6_20CS10029_20CS30042.y"
+#line 1142 "ass6_20CS30042.y"
                                                                                      { 
                             printInfo("selection_statement", "switch ( expression ) statement"); 
                         }
@@ -3510,7 +3510,7 @@ yyreduce:
     break;
 
   case 196: /* iteration_statement: WHILE M LEFT_PARENTHESIS expression RIGHT_PARENTHESIS M statement  */
-#line 1148 "ass6_20CS10029_20CS30042.y"
+#line 1148 "ass6_20CS30042.y"
                                                                                       { 
                             printInfo("iteration_statement", "while ( expression ) statement"); 
                             (yyval.statement) = new Statement(); (yyvsp[-3].expression)->toBool();
@@ -3523,7 +3523,7 @@ yyreduce:
     break;
 
   case 197: /* iteration_statement: DO M statement M WHILE LEFT_PARENTHESIS expression RIGHT_PARENTHESIS SEMI_COLON  */
-#line 1156 "ass6_20CS10029_20CS30042.y"
+#line 1156 "ass6_20CS30042.y"
                                                                                                       { 
                             printInfo("iteration_statement", "do statement while ( expression ) ;"); 
                             (yyval.statement) = new Statement(); (yyvsp[-2].expression)->toBool();
@@ -3535,7 +3535,7 @@ yyreduce:
     break;
 
   case 198: /* iteration_statement: FOR LEFT_PARENTHESIS expression_opt SEMI_COLON M expression_opt SEMI_COLON M expression_opt N RIGHT_PARENTHESIS M statement  */
-#line 1163 "ass6_20CS10029_20CS30042.y"
+#line 1163 "ass6_20CS30042.y"
                                                                                                                                                   { 
                             printInfo("iteration_statement", "for ( expression_opt ; expression_opt ; expression_opt ) statement"); 
                             (yyval.statement) = new Statement(); (yyvsp[-7].expression)->toBool();
@@ -3549,31 +3549,31 @@ yyreduce:
     break;
 
   case 199: /* iteration_statement: FOR LEFT_PARENTHESIS declaration expression_opt SEMI_COLON expression_opt RIGHT_PARENTHESIS statement  */
-#line 1173 "ass6_20CS10029_20CS30042.y"
+#line 1173 "ass6_20CS30042.y"
                         { printInfo("iteration_statement", "for ( declaration expression_opt ; expression_opt ) statement"); }
 #line 3555 "y.tab.c"
     break;
 
   case 200: /* jump_statement: GOTO IDENTIFIER SEMI_COLON  */
-#line 1178 "ass6_20CS10029_20CS30042.y"
+#line 1178 "ass6_20CS30042.y"
                         { printInfo("jump_statement", "goto IDENTIFIER ;"); }
 #line 3561 "y.tab.c"
     break;
 
   case 201: /* jump_statement: CONTINUE SEMI_COLON  */
-#line 1180 "ass6_20CS10029_20CS30042.y"
+#line 1180 "ass6_20CS30042.y"
                         { printInfo("jump_statement", "continue ;"); }
 #line 3567 "y.tab.c"
     break;
 
   case 202: /* jump_statement: BREAK SEMI_COLON  */
-#line 1182 "ass6_20CS10029_20CS30042.y"
+#line 1182 "ass6_20CS30042.y"
                         { printInfo("jump_statement", "break ;"); }
 #line 3573 "y.tab.c"
     break;
 
   case 203: /* jump_statement: RETURN expression_opt SEMI_COLON  */
-#line 1183 "ass6_20CS10029_20CS30042.y"
+#line 1183 "ass6_20CS30042.y"
                                                        { 
                             printInfo("jump_statement", "return expression_opt ;"); 
                             (yyval.statement) = new Statement();
@@ -3587,31 +3587,31 @@ yyreduce:
     break;
 
   case 204: /* translation_unit: external_declaration  */
-#line 1198 "ass6_20CS10029_20CS30042.y"
+#line 1198 "ass6_20CS30042.y"
                         { printInfo("translation_unit", "external_declaration"); }
 #line 3593 "y.tab.c"
     break;
 
   case 205: /* translation_unit: translation_unit external_declaration  */
-#line 1200 "ass6_20CS10029_20CS30042.y"
+#line 1200 "ass6_20CS30042.y"
                         { printInfo("translation_unit", "translation_unit external_declaration"); }
 #line 3599 "y.tab.c"
     break;
 
   case 206: /* external_declaration: function_definition  */
-#line 1205 "ass6_20CS10029_20CS30042.y"
+#line 1205 "ass6_20CS30042.y"
                         { printInfo("external_declaration", "function_definition"); }
 #line 3605 "y.tab.c"
     break;
 
   case 207: /* external_declaration: declaration  */
-#line 1207 "ass6_20CS10029_20CS30042.y"
+#line 1207 "ass6_20CS30042.y"
                         { printInfo("external_declaration", "declaration"); }
 #line 3611 "y.tab.c"
     break;
 
   case 208: /* function_definition: declaration_specifiers declarator declaration_list_opt change_scope LEFT_CURLY_BRACE block_item_list_opt RIGHT_CURLY_BRACE  */
-#line 1212 "ass6_20CS10029_20CS30042.y"
+#line 1212 "ass6_20CS30042.y"
                                                                                                                                                { 
                             printInfo("function_definition", "declaration_specifiers declarator declaration_list_opt compound_statement"); 
                             tableCount = 0;
@@ -3627,25 +3627,25 @@ yyreduce:
     break;
 
   case 209: /* declaration_list_opt: declaration_list  */
-#line 1227 "ass6_20CS10029_20CS30042.y"
+#line 1227 "ass6_20CS30042.y"
                         { printInfo("declaration_list_opt", "declaration_list"); }
 #line 3633 "y.tab.c"
     break;
 
   case 210: /* declaration_list_opt: %empty  */
-#line 1229 "ass6_20CS10029_20CS30042.y"
+#line 1229 "ass6_20CS30042.y"
                         { printInfo("declaration_list_opt", "Epsilon"); }
 #line 3639 "y.tab.c"
     break;
 
   case 211: /* declaration_list: declaration  */
-#line 1234 "ass6_20CS10029_20CS30042.y"
+#line 1234 "ass6_20CS30042.y"
                         { printInfo("declaration_list", "declaration"); }
 #line 3645 "y.tab.c"
     break;
 
   case 212: /* declaration_list: declaration_list declaration  */
-#line 1236 "ass6_20CS10029_20CS30042.y"
+#line 1236 "ass6_20CS30042.y"
                         { printInfo("declaration_list", "declaration_list declaration"); }
 #line 3651 "y.tab.c"
     break;
@@ -3844,7 +3844,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 1239 "ass6_20CS10029_20CS30042.y"
+#line 1239 "ass6_20CS30042.y"
 
 
 void yyerror(string s) {

@@ -249,7 +249,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 18 "ass6_20CS10029_20CS30042.y"
+#line 18 "ass6_20CS30042.y"
 
     int intVal;
     char *floatVal;
