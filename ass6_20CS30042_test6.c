@@ -29,14 +29,14 @@ int main() {
     printStr("\n#### TEST 6 (Recursive function calls) ####");
     int start, end, ep;
     printStr("\nEnter start: ");
-    start = readInt(&ep);
-    if (ep != 0) {
+    ep = readInt(&start);
+    if (ep == 0) {
         printStr("Invalid start\n");
         return 0;
     }
     printStr("Enter end: ");
-    end = readInt(&ep);
-    if (ep != 0) {
+    ep = readInt(&end);
+    if (ep == 0) {
         printStr("Invalid end\n");
         return 0;
     }
@@ -53,8 +53,8 @@ int main() {
 
     printStr("\n\nEnter value of n (<40) to find the nth fibonacci number: ");
     int n;
-    n = readInt(&ep);
-    if (ep != 0) {
+    ep = readInt(&n);
+    if (ep == 0) {
         printStr("Invalid n\n\n");
         return 0;
     } else if (n >= 40) {

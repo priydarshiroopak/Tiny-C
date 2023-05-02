@@ -249,12 +249,12 @@ return              int                                     local               
 108 : 	t56 = "\nEntered do-while loop. Enter number of times you wish to run the loop after this: "
 109 : 	param t56
 110 : 	t57 = call printStr, 1
-111 : 	t58 = &ep
+111 : 	t58 = &iters
 112 : 	param t58
 113 : 	t59 = call readInt, 1
-114 : 	iters = t59
+114 : 	ep = t59
 115 : 	t60 = 0
-116 : 	if ep != t60 goto 118
+116 : 	if ep == t60 goto 118
 117 : 	goto 133
 118 : 	t61 = "\nInvalid input. Exiting...\n\n"
 119 : 	param t61

@@ -194,12 +194,12 @@ return              int                                     local               
 51  : 	t21 = "\nEnter start: "
 52  : 	param t21
 53  : 	t22 = call printStr, 1
-54  : 	t23 = &ep
+54  : 	t23 = &start
 55  : 	param t23
 56  : 	t24 = call readInt, 1
-57  : 	start = t24
+57  : 	ep = t24
 58  : 	t25 = 0
-59  : 	if ep != t25 goto 61
+59  : 	if ep == t25 goto 61
 60  : 	goto 67
 61  : 	t26 = "Invalid start\n"
 62  : 	param t26
@@ -210,12 +210,12 @@ return              int                                     local               
 67  : 	t29 = "Enter end: "
 68  : 	param t29
 69  : 	t30 = call printStr, 1
-70  : 	t31 = &ep
+70  : 	t31 = &end
 71  : 	param t31
 72  : 	t32 = call readInt, 1
-73  : 	end = t32
+73  : 	ep = t32
 74  : 	t33 = 0
-75  : 	if ep != t33 goto 77
+75  : 	if ep == t33 goto 77
 76  : 	goto 83
 77  : 	t34 = "Invalid end\n"
 78  : 	param t34
@@ -250,12 +250,12 @@ return              int                                     local               
 107 : 	t49 = "\n\nEnter value of n (<40) to find the nth fibonacci number: "
 108 : 	param t49
 109 : 	t50 = call printStr, 1
-110 : 	t51 = &ep
+110 : 	t51 = &n
 111 : 	param t51
 112 : 	t52 = call readInt, 1
-113 : 	n = t52
+113 : 	ep = t52
 114 : 	t53 = 0
-115 : 	if ep != t53 goto 117
+115 : 	if ep == t53 goto 117
 116 : 	goto 123
 117 : 	t54 = "Invalid n\n\n"
 118 : 	param t54

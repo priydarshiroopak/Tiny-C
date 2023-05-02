@@ -258,17 +258,17 @@ main:
 	movq    -40(%rbp), %rdi
 	call    printStr
 	movl    %eax, -44(%rbp)
-	leaq    -8(%rbp), %rax
+	leaq    -20(%rbp), %rax
 	movq    %rax, -52(%rbp)
 	movq    -52(%rbp), %rdi
 	call    readInt
 	movl    %eax, -56(%rbp)
 	movl    -56(%rbp), %eax
-	movl    %eax, -20(%rbp)
+	movl    %eax, -8(%rbp)
 	movl    $0, -60(%rbp)
 	movl    -60(%rbp), %eax
 	cmpl    %eax, -8(%rbp)
-	jne     .L11
+	je      .L11
 	jmp     .L12
 .L11:
 	movq    $.LC4, -68(%rbp)
@@ -284,17 +284,17 @@ main:
 	movq    -84(%rbp), %rdi
 	call    printStr
 	movl    %eax, -88(%rbp)
-	leaq    -8(%rbp), %rax
+	leaq    -4(%rbp), %rax
 	movq    %rax, -96(%rbp)
 	movq    -96(%rbp), %rdi
 	call    readInt
 	movl    %eax, -100(%rbp)
 	movl    -100(%rbp), %eax
-	movl    %eax, -4(%rbp)
+	movl    %eax, -8(%rbp)
 	movl    $0, -104(%rbp)
 	movl    -104(%rbp), %eax
 	cmpl    %eax, -8(%rbp)
-	jne     .L13
+	je      .L13
 	jmp     .L14
 .L13:
 	movq    $.LC6, -112(%rbp)
@@ -345,17 +345,17 @@ main:
 	movq    -188(%rbp), %rdi
 	call    printStr
 	movl    %eax, -192(%rbp)
-	leaq    -8(%rbp), %rax
+	leaq    -16(%rbp), %rax
 	movq    %rax, -200(%rbp)
 	movq    -200(%rbp), %rdi
 	call    readInt
 	movl    %eax, -204(%rbp)
 	movl    -204(%rbp), %eax
-	movl    %eax, -16(%rbp)
+	movl    %eax, -8(%rbp)
 	movl    $0, -208(%rbp)
 	movl    -208(%rbp), %eax
 	cmpl    %eax, -8(%rbp)
-	jne     .L17
+	je      .L17
 	jmp     .L18
 .L17:
 	movq    $.LC12, -216(%rbp)

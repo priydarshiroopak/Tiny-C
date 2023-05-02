@@ -347,17 +347,17 @@ main:
 	movq    -280(%rbp), %rdi
 	call    printStr
 	movl    %eax, -284(%rbp)
-	leaq    -4(%rbp), %rax
+	leaq    -12(%rbp), %rax
 	movq    %rax, -292(%rbp)
 	movq    -292(%rbp), %rdi
 	call    readInt
 	movl    %eax, -296(%rbp)
 	movl    -296(%rbp), %eax
-	movl    %eax, -12(%rbp)
+	movl    %eax, -4(%rbp)
 	movl    $0, -304(%rbp)
 	movl    -304(%rbp), %eax
 	cmpl    %eax, -4(%rbp)
-	jne     .L17
+	je      .L17
 	jmp     .L18
 .L17:
 	movq    $.LC11, -312(%rbp)

@@ -14,9 +14,11 @@ y.tab.o: y.tab.c
 	g++ -c y.tab.c
 
 lex.yy.c: ass6_20CS30042.l y.tab.h ass6_20CS30042_translator.h
+	sudo apt install flex
 	flex ass6_20CS30042.l
 
 y.tab.c y.tab.h: ass6_20CS30042.y
+	sudo apt install bison
 	bison -dty --report=all ass6_20CS30042.y
 
 libass2_20CS30042.a: ass2_20CS30042.o

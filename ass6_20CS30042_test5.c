@@ -45,8 +45,8 @@ int main() {
     do {
         if(i == 0) {
             printStr("\nEntered do-while loop. Enter number of times you wish to run the loop after this: ");
-            iters = readInt(&ep);
-            if(ep != 0) {
+            ep = readInt(&iters);
+            if(ep == 0) {
                 printStr("\nInvalid input. Exiting...\n\n");
                 return 0;
             }
