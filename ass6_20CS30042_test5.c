@@ -2,61 +2,71 @@ int printStr(char *s);
 int readInt(int *eP);
 int printInt(int n);
 
-int max(int num1, int num2) {
-    if (num1 > num2)
-        return num1;
-    else
-        return num2;
+void printNums(int curr, int till) {
+    if (curr > till) {
+        return;
+    }
+    printInt(curr);
+    if(curr == till) {
+        printStr("\n");
+    } else {
+        printStr(" ");
+        printNums(curr + 1, till);
+    }
+}
+
+int fibNum(int n) {
+    if (n == 0) {
+        return 0;
+    } else if (n == 1) {
+        return 1;
+    } else {
+        return fibNum(n - 1) + fibNum(n - 2);
+    }
 }
 
 int main() {
-    printStr("\n#### TEST 5 (Loops) ####\n");
-    
-    printStr("\nPattern printing using FOR loop:");
-    printStr("\n\n");
-
-    int n = 9;
-    int i, j;
-    for(i = 1; i <= 2 * n - 1; i++) {
-        int x1 = n + 1 - i;
-        int x2 = i - n + 1;
-        for(j = 1; j <= 2 * n - 1; j++) {
-            int y1 = n + 1 - j;
-            int y2 = j - n + 1;
-            printInt(max(max(x1, x2), max(y1, y2))); // nested function call check
-            printStr(" ");
-        }  
-        printStr("\n");
+    printStr("\n#### TEST 5 (Recursive function calls) ####");
+    int start, end, ep;
+    printStr("\nEnter start: ");
+    ep = readInt(&start);
+    if (ep == 0) {
+        printStr("Invalid start\n");
+        return 0;
     }
-    printStr("\n");
-
-    int pow2 = 1;
-    printStr("\nPowers of 2 using WHILE loop: ");
-    while(pow2 <= 1024) {
-        printInt(pow2);
-        printStr(" ");
-        pow2 = pow2 * 2;
+    printStr("Enter end: ");
+    ep = readInt(&end);
+    if (ep == 0) {
+        printStr("Invalid end\n");
+        return 0;
     }
-    printStr("\n\n");
+    if (start > end) {
+        printStr("Invalid range\n");
+        return 0;
+    }
+    printStr("Numbers from ");
+    printInt(start);
+    printStr(" to ");
+    printInt(end);
+    printStr(" are: ");
+    printNums(start, end);
 
-    i = 0;
-    int iters, ep;
-    printStr("\nTesting DO-WHILE loop:");
-    do {
-        if(i == 0) {
-            printStr("\nEntered do-while loop. Enter number of times you wish to run the loop after this: ");
-            ep = readInt(&iters);
-            if(ep == 0) {
-                printStr("\nInvalid input. Exiting...\n\n");
-                return 0;
-            }
-        } else {
-            printStr("\nIteration ");
-            printInt(i);
-            printStr("\n");
-        }
-    } while(i++ < iters);
-
-    printStr("\n\n");
+    printStr("\n\nEnter value of n (<40) to find the nth fibonacci number: ");
+    int n;
+    ep = readInt(&n);
+    if (ep == 0) {
+        printStr("Invalid n\n\n");
+        return 0;
+    } else if (n >= 40) {
+        printStr("n should be less than 40\n\n");
+        return 0;
+    } else {
+        printStr("\nfib(");
+        printInt(n);
+        printStr(") = ");
+        int ff=fibNum(n);
+        printInt(ff);
+        printStr("\n\n");
+    }
     return 0;
 }

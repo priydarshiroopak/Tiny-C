@@ -2,71 +2,104 @@ int printStr(char *s);
 int readInt(int *eP);
 int printInt(int n);
 
-int testInt(int num) {
-    return num;
-}
-
-int *testIntPtr(int *numPtr) {
-    return numPtr;
-}
-
-char testChar(char c) {
-    return c;
-}
-
-
-
-void testVoid() {
-    printStr("\nHello World, I am a void function. I don't return anything.");
-    return;
-}
+int numG1 = 20, numG2;
+char charG1 = 'b', charG2;
+int *ptrG1, *ptrG2;
+char *strG1 = "Hello World, I am a global string.", *strG2;
 
 int main() {
-    printStr("\n#### TEST 3 (Function calls and returns) ####");
-    int n = 10;
-    int *nPtr = &n;
+    printStr("\n#### TEST 3 (Global variables, pointers and addresses) ####");
+
+    int numL1 = 5, numL2;
+    char charL1 = 'a', charL2;
+    int *ptrL1 = &numL1, *ptrL2;
+    char *strL1 = "Hello World, I am a local string.", *strL2;
     
-    printStr("\nTesting integer value return: ");
-    int retInt = testInt(n);
-    if (retInt == n) {
-        printStr("Passed");
-    } else {
-        printStr("Failed");
-    }
+    printStr("\nLocal variables: ");
+    printStr("\nnumL1 = ");
+    printInt(numL1);
+    printStr(", charL1 (ascii value) = ");
+    printInt(charL1);
+    printStr(", ptrL1 (adress, truncated to first 32 bits only) = ");
+    printInt(ptrL1);
+    printStr(", strL1 = ");
+    printStr(strL1);
+
+    ptrG1 = &numG1;
+
+    printStr("\nGlobal variables: ");
+    printStr("\nnumG1 = ");
+    printInt(numG1);
+    printStr(", charG1 (ascii value) = ");
+    printInt(charG1);
+    printStr(", ptrG1 (adress, truncated to first 32 bits only) = ");
+    printInt(ptrG1);
+    printStr(", strG1 = ");
+    printStr(strG1);
     
-    printStr("\nTesting integer pointer return: ");
-    int *retIntPtr = testIntPtr(nPtr);
-    if (retIntPtr == nPtr) {
-        printStr("Passed");
+    printStr("\n");
+
+    printStr("\nAssigning locals to globals: ");
+    numG2 = numL1;
+    charG2 = charL1;
+    ptrG2 = ptrL1;
+    strG2 = strL1;
+    printStr("\nnumG2 = ");
+    printInt(numG2);
+    printStr(", charG2 (ascii value) = ");
+    printInt(charG2);
+    printStr(", ptrG2 (adress, truncated to first 32 bits only) = ");
+    printInt(ptrG2);
+    printStr(", strG2 = ");
+    printStr(strG2);
+    if(numG2 == numL1 && charG2 == charL1 && ptrG2 == ptrL1 && strG2 == strL1) {
+        printStr("\nSUCCESS: Local variables assigned to global variables.");
     } else {
-        printStr("Failed");
+        printStr("\nFAILURE: Local variables not assigned to global variables.");
     }
 
-    char c = 'm';
-    char *cPtr = &c;
+    printStr("\n");
 
-    printStr("\nTesting character value return: ");
-    char retChar = testChar(c);
-    if (retChar == c) {
-        printStr("Passed");
+    printStr("\nAssigning globals to locals: ");
+    numL2 = numG1;
+    charL2 = charG1;
+    ptrL2 = ptrG1;
+    strL2 = strG1;
+    printStr("\nnumL2 = ");
+    printInt(numL2);
+    printStr(", charL2 (ascii value) = ");
+    printInt(charL2);
+    printStr(", ptrL2 (adress, truncated to first 32 bits only) = ");
+    printInt(ptrL2);
+    printStr(", strL2 = ");
+    printStr(strL2);
+    if(numL2 == numG1 && charL2 == charG1 && ptrL2 == ptrG1 && strL2 == strG1) {
+        printStr("\nSUCCESS: Global variables assigned to local variables.");
     } else {
-        printStr("Failed");
+        printStr("\nFAILURE: Global variables not assigned to local variables.");
     }
 
+    printStr("\n");
 
+    printStr("\nAssigning globals to globals: ");
+    numG2 = numG1;
+    charG2 = charG1;
+    ptrG2 = ptrG1;
+    strG2 = strG1;
+    printStr("\nnumG2 = ");
+    printInt(numG2);
+    printStr(", charG2 (ascii value) = ");
+    printInt(charG2);
+    printStr(", ptrG2 (adress, truncated to first 32 bits only) = ");
+    printInt(ptrG2);
+    printStr(", strG2 = ");
+    printStr(strG2);
+    if(numG2 == numG1 && charG2 == charG1 && ptrG2 == ptrG1 && strG2 == strG1) {
+        printStr("\nSUCCESS: Global variables assigned to global variables.");
+    } else {
+        printStr("\nFAILURE: Global variables not assigned to global variables.");
+    }
 
-    char *str = "Hello World, I am a string.";
-    printStr("\nTesting string return: ");
-
-    printStr(" [ Passed string: ");
-    printStr(str);
-    printStr(" ], ");
-    printStr("[ Returned string: ");
-    printStr(retStr);
-    printStr(" ]");
-
-    printStr("\nTesting void return: ");
-    testVoid();
     printStr("\n\n");
     return 0;
 }
