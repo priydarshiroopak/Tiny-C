@@ -22,13 +22,13 @@ Finally, the target code translator converts the 3-address quad array into assem
 
 ## Modules:
 
--   ass6_20CS30042.l
--   ass6_20CS30042.y
--   ass6_20CS30042.c
--   ass6_20CS30042_translator.h
--   ass6_20CS30042_translator.cxx
--   ass6_20CS30042_target_translator.cxx
--   myl.h
+-   [ass6_20CS30042.l](ass6_20CS30042.l) : The lexical analyzer for tinyC
+-   [ass6_20CS30042.y](ass6_20CS30042.y) : The parser for tinyC
+-   [ass6_20CS30042.c](ass6_20CS30042.c) : The implementaion of I/O library
+-   [myl.h](myl.h) : The header file for the library functions
+-   [ass6_20CS30042_translator.h](ass6_20CS30042_translator.h) : The header file for the translator
+-   [ass6_20CS30042_translator.cxx](ass6_20CS30042_translator.cxx) : The implementation of the translator
+-   [ass6_20CS30042_target_translator.cxx](ass6_20CS30042_target_translator.cxx) : The implementation of the target translator
 
 ## Usage:
 
