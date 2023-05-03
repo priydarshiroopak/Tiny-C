@@ -4,7 +4,7 @@ This project is a completed implementation of a compiler for the TinyC language,
 
 The lexical specification and phase structure grammar of tinyC have been defined in Assignments 3 and 4, respectively. The semantic actions have been implemented in Assignment 5 to translate a tinyC program into an array of 3-address quads, a supporting symbol table, and other auxiliary data structures. Finally, a target code translator has been developed in Assignment 6 to generate assembly language code for x86-64 architecture from the 3-address quad array.
 
-All the specifications for the lexical grammar, phase structure grammar, and semantic actions have been given in the respective assignment descriptions in the `problem statements` folder.
+All the specifications for the lexical grammar, phase structure grammar, and semantic actions have been given in the respective assignment descriptions in the `problem_statements` folder.
 
 ## Implementation Details
 
@@ -16,9 +16,9 @@ Finally, the target code translator converts the 3-address quad array into assem
 
 ## Definitions
 
-* The lexical specification and phase structure grammar of tinyC can be found in Assignments 3 and 4, respectively, in the "problem statements" folder.
-* The semantic actions for translating a tinyC program into 3-address quads are defined in Assignment 5 in the "problem statements" folder.
-* The target code translator for generating x86-64 assembly language code from the 3-address quad array is defined in Assignment 6 in the "problem statements" folder.
+* The lexical specification and phase structure grammar of tinyC can be found in [Assignment 3](problem_statements/Asgn3.pdf) and [Assignment 4](problem_statements/Asgn4.pdf), respectively.
+* The semantic actions for translating a tinyC program into 3-address quads are defined in [Assignment 5](problem_statements/Asgn5.pdf).
+* The target code translator for generating x86-64 assembly language code from the 3-address quad array is defined in [Assignment 6](problem_statements/Asgn6.pdf).
 
 ## Modules:
 
