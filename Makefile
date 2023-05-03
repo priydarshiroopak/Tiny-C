@@ -28,7 +28,7 @@ ass2_20CS30042.o: ass2_20CS30042.c myl.h
 	gcc -c ass2_20CS30042.c
 
 clean:
-	rm libass2_20CS30042.a ass2_20CS30042.o parser.out ass6_20CS30042_translator.o ass6_20CS30042_target_translator.o lex.yy.* y.tab.* y.output test*
+	rm libass2_20CS30042.a ass2_20CS30042.o parser.out ass6_20CS30042_translator.o ass6_20CS30042_target_translator.o lex.yy.* y.tab.* y.output *test*.s *quads*.out test*
 
 test: parser.out libass2_20CS30042.a
 	@echo "Generating assembly files\n"
